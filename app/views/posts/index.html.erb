@@ -1,0 +1,22 @@
+<div class="main posts-index">
+  <div class="container">
+    <% @posts.each do | post | %>
+    <div class="posts-index-item">
+      <div class="post-right">
+        <div class="post-user-name">
+          <%= link_to(post.user.name,"/users/#{post.user.id}") %>
+        </div>
+        <div class="post-kiji">
+          <h2><%= link_to("SANGO!","/posts/#{post.id}") %></h2>
+          <a class="sango"><%= post.first %></a>
+          <a class="sango"><%= post.second %></a>
+          <a class="sango"><%= post.third %></a>
+          <div class="post-kiji-url">
+          <p><%= link_to(post.content,"/posts/#{post.id}") %></p>
+          </div>
+        </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
