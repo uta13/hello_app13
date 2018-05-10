@@ -113,6 +113,27 @@
   color: #afb6bf;
 }
 
+.follow .following a{
+  width: 120px;
+  color: #fff;
+  background-color: #ff2581;
+  border-radius: 10px;
+  padding: 5px 5px 5px 5px;
+}
+
+.follow .follows a {
+  width: 120px;
+  color: #ff2581;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 5px 5px 5px 5px;
+  border: 2px solid #ff2581;
+}
+
+.user-right a{
+  font-size: 20px;
+}
+
 /* users/new, users/edit ================================ */
 .users-form input {
   margin-bottom: 15px;

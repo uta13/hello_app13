@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  post "follows/:user_id/create" => "follows#create"
+  post "follows/:user_id/destroy" => "follows#destroy"
+
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"
 
@@ -13,6 +16,8 @@ Rails.application.routes.draw do
   get "users/:id/edit" => "users#edit"
   post "users/:id/update" => "users#update"
   get "users/:id/likes" => "users#likes"
+  get "users/:id/follow" => "users#follow"
+  get "users/:id/follower" => "users#follower"
 
   get 'posts/index'
   get "posts/new" => "posts#new"

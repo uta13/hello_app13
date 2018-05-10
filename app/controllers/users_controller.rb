@@ -16,11 +16,15 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(name: params[:name],email: params[:email],password: params[:password])
+    @user = User.new(name: params[:name],
+                     email: params[:email],
+                     password: params[:password],
+                   image_name: "default_user.jpg")
+
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "登録しました"
-      redirect_to("/users/index")
+      redirect_to("/posts/index")
     else
       render("users/new")
     end
@@ -34,6 +38,13 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @user.name = params[:name]
     @user.email = params[:email]
+
+    if params[:image]
+    @user.image_name = "#{@user.id}.jpg"
+    image = params[:image]
+    File.binwrite("public/user_images/#{@user.image_name}", image.read)
+    end
+
     if @user.save
      flash[:notice] = "編集しました"
      redirect_to("/users/#{@user.id}")
@@ -46,7 +57,7 @@ class UsersController < ApplicationController
   end
 
   def login
-    @user = User.find_by(email: params[:email])
+    @user = User.find_by(name: params[:name], password: params[:password])
 
     if @user
       session[:user_id] = @user.id
@@ -74,6 +85,16 @@ class UsersController < ApplicationController
   def likes
     @user = User.find_by(id: params[:id])
     @likes = Like.where(user_id: @user.id)
+  end
+
+  def follow
+    @user = User.find_by(id: params[:id])
+    @follows = Follow.where(follow_id: @user.id)
+  end
+
+  def follower
+    @user = User.find_by(id: params[:id])
+    @follower = Follow.where(follower_id: @user.id)
   end
 
 
