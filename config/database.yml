@@ -24,5 +24,7 @@ production:
  <<: *default
  adapter: postgresql
  encoding: unicode
- pool: 5
+ pool: 5 
+ username: anhmkgxvfcwwzy
+ password: 293d6a917e3af01d675526fb7706289d48acaa80f42ac8a7890acba701f7539d
  url: <%= ENV['DATABASE_URL'] %>
