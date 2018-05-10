@@ -22,6 +22,7 @@ test:
 
 production:
  <<: *default
+ host: ec2-50-19-224-165.compute-1.amazonaws.com
  adapter: postgresql
  encoding: unicode
  pool: 5 
