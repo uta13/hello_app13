@@ -22,12 +22,12 @@ test:
 
 production:
  <<: *default
- host: ec2-50-19-224-165.compute-1.amazonaws.com
- database: deu388tl2lj64t
- adapter: postgresql
- encoding: unicode
- pool: 5
- port: 5432
- username: anhmkgxvfcwwzy
- password: 293d6a917e3af01d675526fb7706289d48acaa80f42ac8a7890acba701f7539d
+ #host: ec2-50-19-224-165.compute-1.amazonaws.com
+ #database: deu388tl2lj64t
+ #adapter: postgresql
+ #encoding: unicode
+ #pool: 5
+ #port: 5432
+ #username: anhmkgxvfcwwzy
+ #password: 293d6a917e3af01d675526fb7706289d48acaa80f42ac8a7890acba701f7539d
  url: <%= ENV['DATABASE_URL'] %>
